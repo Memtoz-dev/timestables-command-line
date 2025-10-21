@@ -18,6 +18,14 @@ public class Main {
 
         char loop = userInput.next().charAt(0);
         char loopYN = Character.toUpperCase(loop);
+
+        while (loopYN != 'Y' && loopYN != 'N') {
+            System.out.println("Invalid input!");
+            System.out.println("Try again? (Y/N):");
+
+            loop = userInput.next().charAt(0);
+            loopYN = Character.toUpperCase(loop);
+        }
         return loopYN;
 
     }
@@ -29,12 +37,16 @@ public class Main {
 
         char loopChoice = timesTable(userInput);
 
-        while (loopChoice == 'Y') {
-            System.out.println("Type a number to see its timestable:");
-            loopChoice = timesTable(userInput);
+        switch (loopChoice) {
+
+            case ('Y'):
+                while (loopChoice == 'Y') {
+                    System.out.println("Type a number to see its timestable:");
+                    loopChoice = timesTable(userInput);
+                }
+                ;
+                break;
         }
-
         System.out.println("Thanks for playing :D");
-
     }
 }
